@@ -118,6 +118,8 @@ export default function App() {
                 <li key={link.href}>
                   <a
                     href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
                   >
                     {link.label}

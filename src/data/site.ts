@@ -25,7 +25,7 @@ export const site = {
   commissionsTitle: "Commissions",
   commissions:
     "I’m planning to open commissions for ponysonas, fursonas, and custom Pokémon fan art.",
-  email: "",
+  email: "coucoulou.art@gmail.com",
   waitlistUrl: "",
   saveHint:
     "If your phone opens the picture instead of saving it, press and hold, then add it to your photos. Set it from there.",
@@ -34,5 +34,7 @@ export const site = {
   trademark:
     "Pokémon and related characters are trademarks of Nintendo, Creatures Inc., and GAME FREAK inc. This is unofficial fan art, not affiliated with or endorsed by them.",
   year: 2026,
-  socials: [] as SocialLink[],
+  socials: [
+    { label: "Instagram", href: "https://www.instagram.com/cou.cou.lou/" },
+  ] as SocialLink[],
 }
