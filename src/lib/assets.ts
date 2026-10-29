@@ -1,11 +1,11 @@
-import type { Wallpaper } from "@/data/wallpapers"
+import type { Artwork } from "@/data/art"
 
 export function assetUrl(file: string) {
   const base = import.meta.env.BASE_URL
   return `${base}${file.replace(/^\/+/, "")}`
 }
 
-export function downloadName(wallpaper: Wallpaper) {
-  const ext = wallpaper.file.split(".").pop() || "png"
-  return `cou-cou-lou-${wallpaper.slug}.${ext}`
+export function downloadName(artwork: Artwork) {
+  const ext = artwork.file.split(".").pop() || "png"
+  return `cou-cou-lou-${artwork.slug}.${ext}`
 }

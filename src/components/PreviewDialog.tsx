@@ -1,7 +1,7 @@
-import type { Wallpaper } from "@/data/wallpapers"
+import type { Artwork } from "@/data/art"
 import { site } from "@/data/site"
 import { assetUrl, downloadName } from "@/lib/assets"
-import { WallpaperImage } from "@/components/WallpaperImage"
+import { ArtImage } from "@/components/ArtImage"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -10,55 +10,64 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
+function kindLabel(piece: Artwork) {
+  if (piece.wallpaper) return "Fan art · wallpaper"
+  if (piece.kind === "for-people") return "For people"
+  if (piece.kind === "binder") return "Binder page"
+  return "Fan art"
+}
+
 export function PreviewDialog({
-  wallpaper,
+  piece,
   onOpenChange,
 }: {
-  wallpaper: Wallpaper | null
+  piece: Artwork | null
   onOpenChange: (open: boolean) => void
 }) {
   return (
-    <Dialog open={wallpaper !== null} onOpenChange={onOpenChange}>
-      {wallpaper ? (
+    <Dialog open={piece !== null} onOpenChange={onOpenChange}>
+      {piece ? (
         <DialogContent className="max-h-[calc(100svh-1.5rem)] overflow-y-auto bg-paper p-4 text-ink sm:max-w-3xl sm:p-6">
-          <div className="grid items-center gap-5 md:grid-cols-[minmax(0,240px)_minmax(0,1fr)] md:gap-8">
-            <WallpaperImage
-              wallpaper={wallpaper}
-              alt={wallpaper.alt}
+          <div className="grid items-center gap-5 md:grid-cols-[minmax(0,260px)_minmax(0,1fr)] md:gap-8">
+            <ArtImage
+              artwork={piece}
+              alt={piece.alt}
               loading="eager"
-              className="mx-auto w-full max-w-[220px] rounded-[1.4rem] object-cover ring-1 ring-ink/10 md:max-w-none"
+              framed
+              className="mx-auto max-h-[68svh] w-auto max-w-full rounded-[1.2rem] object-contain ring-1 ring-ink/10"
             />
             <div className="pr-8">
               <p className="text-xs font-medium tracking-[0.18em] text-moss uppercase">
-                {wallpaper.collection}
-                {wallpaper.sample ? " · Stand-in" : ""}
+                {kindLabel(piece)}
               </p>
               <DialogTitle className="font-display mt-2 text-4xl font-semibold tracking-[-0.03em]">
-                {wallpaper.title}
+                {piece.title}
               </DialogTitle>
               <DialogDescription className="mt-3 text-base leading-relaxed text-ink/75">
-                {wallpaper.description}
+                {piece.description}
               </DialogDescription>
               <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <dt className="text-ink/55">Size</dt>
                   <dd className="mt-1 tabular-nums">
-                    {wallpaper.width} × {wallpaper.height}
+                    {piece.width} × {piece.height}
                   </dd>
                 </div>
                 <div>
                   <dt className="text-ink/55">File</dt>
-                  <dd className="mt-1 uppercase">{wallpaper.file.split(".").pop()}</dd>
+                  <dd className="mt-1 uppercase">{piece.file.split(".").pop()}</dd>
                 </div>
               </dl>
-              <Button asChild className="mt-6 h-11 px-4 text-base">
-                <a href={assetUrl(wallpaper.file)} download={downloadName(wallpaper)}>
-                  Save wallpaper
-                </a>
-              </Button>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink/65">
-                {site.steps[1]}
-              </p>
+              {piece.wallpaper ? (
+                <>
+                  <Button asChild className="mt-6 h-11 px-4 text-base">
+                    <a href={assetUrl(piece.file)} download={downloadName(piece)}>
+                      Save wallpaper
+                    </a>
+                  </Button>
+                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink/65">{site.saveHint}</p>
+                </>
+              ) : null}
             </div>
           </div>
         </DialogContent>

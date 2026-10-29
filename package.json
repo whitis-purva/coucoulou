@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "wallpapers": "node scripts/render-wallpapers.mjs",
-    "build": "node scripts/check-wallpapers.mjs && tsc -b && vite build",
+    "build": "node scripts/check-art.mjs && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },

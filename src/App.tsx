@@ -1,42 +1,48 @@
 import { useState } from "react"
-import type { Wallpaper } from "@/data/wallpapers"
+import type { Artwork } from "@/data/art"
 import { site } from "@/data/site"
-import { Gallery } from "@/components/Gallery"
 import { Hero } from "@/components/Hero"
 import { PreviewDialog } from "@/components/PreviewDialog"
+import { Shelves } from "@/components/Shelf"
 import { Wordmark } from "@/components/Wordmark"
 
+const nav = [
+  { href: "#fan-art", label: "Fan art" },
+  { href: "#for-people", label: "For people" },
+  { href: "#binder", label: "Binder" },
+  { href: "#about", label: "About" },
+]
+
 export default function App() {
-  const [active, setActive] = useState<Wallpaper | null>(null)
+  const [active, setActive] = useState<Artwork | null>(null)
 
   return (
     <div className="min-h-svh text-ink">
       <a
-        href="#wallpapers"
+        href="#fan-art"
         className="absolute top-4 left-4 z-50 -translate-y-24 bg-ink px-3 py-2 text-sm text-paper focus:translate-y-0"
       >
-        Skip to wallpapers
+        Skip to the fan art
       </a>
 
       <header className="sticky top-0 z-40 border-b border-ink/15 bg-paper/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 md:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-3.5 md:px-8">
           <a href="#top" className="font-display text-xl font-semibold tracking-[-0.03em]">
             <Wordmark />
           </a>
-          <nav className="flex items-center gap-5 text-sm">
-            <a href="#wallpapers" className="underline-offset-4 hover:underline">
-              Wallpapers
-            </a>
-            <a href="#about" className="underline-offset-4 hover:underline">
-              About
-            </a>
+          <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+            {nav.map((item) => (
+              <a key={item.href} href={item.href} className="underline-offset-4 hover:underline">
+                {item.label}
+              </a>
+            ))}
           </nav>
         </div>
       </header>
 
       <main id="top">
         <Hero onOpen={setActive} />
-        <Gallery onOpen={setActive} />
+        <Shelves onOpen={setActive} />
 
         <section id="about" className="border-t border-ink/10">
           <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-2">
@@ -52,19 +58,21 @@ export default function App() {
             </div>
             <div>
               <h3 className="font-display text-2xl font-semibold tracking-[-0.03em]">
-                {site.stepsTitle}
+                On the wall
               </h3>
-              <ol className="mt-5 space-y-4">
-                {site.steps.map((step, index) => (
-                  <li key={step} className="flex gap-4 text-base leading-relaxed">
-                    <span className="font-display text-lg text-berry tabular-nums">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-ink/80">{step}</span>
+              <ul className="mt-5 space-y-5">
+                {site.wall.map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="font-display text-lg font-semibold tracking-[-0.02em] underline decoration-ink/20 underline-offset-4 hover:decoration-ink"
+                    >
+                      {item.title}
+                    </a>
+                    <p className="mt-1 text-sm leading-relaxed text-ink/70">{item.text}</p>
                   </li>
                 ))}
-              </ol>
-              <p className="mt-6 text-sm leading-relaxed text-ink/65">{site.sizeNote}</p>
+              </ul>
             </div>
           </div>
         </section>
@@ -97,7 +105,7 @@ export default function App() {
         </div>
       </footer>
 
-      <PreviewDialog wallpaper={active} onOpenChange={(open) => !open && setActive(null)} />
+      <PreviewDialog piece={active} onOpenChange={(open) => !open && setActive(null)} />
     </div>
   )
 }

@@ -1,18 +1,21 @@
 import { useState } from "react"
-import type { Wallpaper } from "@/data/wallpapers"
+import type { Artwork } from "@/data/art"
 import { assetUrl } from "@/lib/assets"
 import { cn } from "cn"
 
-export function WallpaperImage({
-  wallpaper,
+export function ArtImage({
+  artwork,
   alt,
   className,
   loading = "lazy",
+  framed = false,
 }: {
-  wallpaper: Wallpaper
+  artwork: Artwork
   alt: string
   className?: string
   loading?: "lazy" | "eager"
+  /** Keep the file’s own proportions. Turn off when the parent crops the picture. */
+  framed?: boolean
 }) {
   const [broken, setBroken] = useState(false)
 
@@ -23,24 +26,24 @@ export function WallpaperImage({
           "grid place-items-center bg-blush px-4 text-center text-sm leading-snug text-ink",
           className,
         )}
-        style={{ aspectRatio: `${wallpaper.width} / ${wallpaper.height}` }}
+        style={{ aspectRatio: `${artwork.width} / ${artwork.height}` }}
       >
-        This file isn’t in the wallpapers folder yet.
+        This picture isn’t in the art folder yet.
       </div>
     )
   }
 
   return (
     <img
-      src={assetUrl(wallpaper.file)}
+      src={assetUrl(artwork.file)}
       alt={alt}
-      width={wallpaper.width}
-      height={wallpaper.height}
+      width={artwork.width}
+      height={artwork.height}
       loading={loading}
       decoding="async"
       onError={() => setBroken(true)}
       className={className}
-      style={{ aspectRatio: `${wallpaper.width} / ${wallpaper.height}` }}
+      style={framed ? undefined : { aspectRatio: `${artwork.width} / ${artwork.height}` }}
     />
   )
 }

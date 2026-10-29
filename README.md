@@ -1,8 +1,12 @@
 # cou.cou.lou
 
-A small site for phone wallpapers from the cou.cou.lou sketchbook. It is a static site, built to publish on GitHub Pages. People can preview a wallpaper and save the PNG for their own phone.
+A site for the cou.cou.lou sketchbook. It hangs three kinds of work:
 
-The pictures shipping with the repo are studio stand-ins (dots, flat color, one paper bird). They are not Pokémon drawings. Replace them with your own files when you are ready.
+- **Fan art**, mostly Pokémon. Pieces marked as wallpapers can be saved for a phone.
+- **For people**, ponysona and fursona drawings.
+- **Binder pages**, illustrations for a Michi-method Pokémon binder, in whatever proportion that page needs.
+
+The site is static, so it can be published on GitHub Pages.
 
 ## Run it locally
 
@@ -13,26 +17,18 @@ npm run dev
 
 Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 
-## Add a wallpaper
+## Add a drawing
 
-1. Export a PNG. A tall phone size works best: **1170 × 2532**, or a larger master such as **1440 × 3200**.
-2. Save it as `public/wallpapers/your-file.png`.
-3. Add an entry at the top of the list in `src/data/wallpapers.ts`. Copy one of the existing entries and change the title, size, file name, and description. Leave off `sample: true`.
-4. When your own files are in, delete the studio stand-ins from that list. You can also delete their PNGs from `public/wallpapers/`.
+1. Put the image in `public/art/`.
+2. Add an entry to the list in `src/data/art.ts`.
+   - `kind: "fan-art"` for Pokémon fan art
+   - `kind: "for-people"` for a ponysona or fursona
+   - `kind: "binder"` for a Michi-method binder page
+3. Set `wallpaper: true` only when people should be able to download that file and set it on a phone. Leave it off for everything else.
 
-The notice at the top of the wall disappears once no entry has `sample: true`. If you add a second collection name, filter buttons appear on their own.
+An empty shelf shows a waiting frame until that kind of work has at least one entry. Words for the hero, the shelves, and the footer live in `src/data/site.ts`.
 
-To redraw the four stand-ins:
-
-```bash
-npm run wallpapers
-```
-
-## Change the words
-
-Bio, the personal-use line, the fan-art notice, and social links live in `src/data/site.ts`.
-
-The footer states a personal-use license and a Pokémon trademark notice. That matches unofficial fan art people set on their own phones. Change the wording there if you want a different permission.
+Wallpaper files are offered for personal use. The footer says so, and it includes a Pokémon trademark notice. Change that wording in `src/data/site.ts` if you want a different permission.
 
 ## Publish on GitHub Pages
 
