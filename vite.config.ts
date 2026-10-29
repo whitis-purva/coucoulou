@@ -15,15 +15,15 @@ export default defineConfig({
     },
   },
   server: {
-    // "::" accepts IPv6 and, on this machine, IPv4 as well. Binding only
-    // 0.0.0.0 makes browsers that try ::1 first get connection refused.
-    host: "::",
+    host: "0.0.0.0",
     port: 43123,
     strictPort: true,
+    allowedHosts: true,
   },
   preview: {
-    host: "::",
+    host: "0.0.0.0",
     port: 43123,
     strictPort: true,
+    allowedHosts: true,
   },
 })
