@@ -1,10 +1,6 @@
 # cou.cou.lou
 
-A site for the cou.cou.lou sketchbook. It hangs three kinds of work:
-
-- **Fan art**, mostly Pokémon. Pieces marked as wallpapers can be saved for a phone.
-- **For people**, ponysona and fursona drawings.
-- **Binder pages**, illustrations for a Michi-method Pokémon binder, in whatever proportion that page needs.
+A portfolio site for cou.cou.lou. The gallery is the page. Pokémon phone wallpapers are the first series inside it, and later work can join as another series without a new layout.
 
 The site is static, so it can be published on GitHub Pages.
 
@@ -19,16 +15,15 @@ Open [http://127.0.0.1:43123](http://127.0.0.1:43123).
 
 ## Add a drawing
 
-1. Put the image in `public/art/`.
-2. Add an entry to the list in `src/data/art.ts`.
-   - `kind: "fan-art"` for Pokémon fan art
-   - `kind: "for-people"` for a ponysona or fursona
-   - `kind: "binder"` for a Michi-method binder page
-3. Set `wallpaper: true` only when people should be able to download that file and set it on a phone. Leave it off for everything else.
+1. Put the full-resolution image in `public/art/`.
+2. Add an entry to the artwork list in `src/data/art.ts`. Point `file` at the original and `preview` at a path such as `art/previews/your-slug.webp`.
+3. Run `npm run previews`. The grid and the hero use the preview. The Download link serves the full file.
 
-An empty shelf shows a waiting frame until that kind of work has at least one entry. Words for the hero, the shelves, and the footer live in `src/data/site.ts`.
+While every piece is in one collection, the filter chips stay off the page. Add a piece with `collection: "commissions"`, `"pokemon"`, or `"original"`, and give it a `series` entry, when that work is ready to show. The chips turn on by themselves. Don’t add a series with no pictures.
 
-Wallpaper files are offered for personal use. The footer says so, and it includes a Pokémon trademark notice. Change that wording in `src/data/site.ts` if you want a different permission.
+Words for the hero, about, commissions, and footer live in `src/data/site.ts`. Set `email` (and optionally `waitlistUrl`) there when you want a way for people to ask about commissions. Add social links to `socials` the same way.
+
+Wallpaper files are free for personal use. The footer says so, including a request not to use them for AI training, and it includes the Pokémon fan-art notice.
 
 ## Publish on GitHub Pages
 

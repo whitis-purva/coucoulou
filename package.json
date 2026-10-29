@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/dev.mjs",
-    "build": "node scripts/check-art.mjs && tsc -b && vite build",
+    "previews": "node scripts/make-previews.mjs",
+    "build": "node scripts/make-previews.mjs && node scripts/check-art.mjs && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },

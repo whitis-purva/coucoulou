@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from "node:fs"
 
 const source = readFileSync(new URL("../src/data/art.ts", import.meta.url), "utf8")
-const files = [...source.matchAll(/file:\s*"([^"]+)"/g)].map((match) => match[1])
+const files = [
+  ...source.matchAll(/(?:file|preview):\s*"([^"]+)"/g),
+].map((match) => match[1])
 
 if (files.length === 0) {
   console.error("No artwork files listed in src/data/art.ts")

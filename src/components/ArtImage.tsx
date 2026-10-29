@@ -8,12 +8,14 @@ export function ArtImage({
   alt,
   className,
   loading = "lazy",
+  fetchPriority,
   framed = false,
 }: {
   artwork: Artwork
   alt: string
   className?: string
   loading?: "lazy" | "eager"
+  fetchPriority?: "high" | "low" | "auto"
   /** Keep the file’s own proportions. Turn off when the parent crops the picture. */
   framed?: boolean
 }) {
@@ -35,11 +37,12 @@ export function ArtImage({
 
   return (
     <img
-      src={assetUrl(artwork.file)}
+      src={assetUrl(artwork.preview)}
       alt={alt}
       width={artwork.width}
       height={artwork.height}
       loading={loading}
+      fetchPriority={fetchPriority}
       decoding="async"
       onError={() => setBroken(true)}
       className={className}
