@@ -11,15 +11,7 @@ export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-6">
       <div>
-        <p className="flex items-center gap-3 text-xs font-medium tracking-[0.22em] text-moss uppercase">
-          <span className="inline-flex items-center gap-1.5" aria-hidden="true">
-            <span className="size-1.5 rounded-full bg-ink" />
-            <span className="size-1.5 rounded-full bg-berry" />
-            <span className="size-1.5 rounded-full bg-ink" />
-          </span>
-          {site.tagline}
-        </p>
-        <h1 className="font-display mt-5 text-[3.25rem] leading-[0.86] font-semibold tracking-[-0.035em] text-ink sm:text-7xl lg:text-[5.4rem]">
+        <h1 className="font-display text-[3.25rem] leading-[0.86] font-semibold tracking-[-0.035em] text-ink sm:text-7xl lg:text-[5.4rem]">
           <Wordmark stacked />
         </h1>
         <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/80">{site.hero}</p>
@@ -49,9 +41,6 @@ export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
               />
             </span>
           </button>
-          <p className="mt-4 text-center text-sm text-ink/70">
-            <span className="font-display text-base text-ink">{piece.title}</span>
-          </p>
         </div>
       ) : null}
     </section>

@@ -18,7 +18,6 @@ export const site = {
   title: "cou.cou.lou — illustration",
   description:
     "Illustration and fan art by cou.cou.lou. Pokémon, original characters, and custom character art.",
-  tagline: "Illustration",
   hero: "Illustration & fan art. Pokémon, original characters, and custom character art.",
   aboutTitle: "About",
   about:
