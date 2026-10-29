@@ -47,7 +47,7 @@ export const series: Series[] = [
     id: "wallpapers-vol-1",
     collection: "wallpapers",
     title: "Pokémon Phone Wallpapers, Vol. 1",
-    lede: "Five free wallpapers, made for your lock screen and home screen. Tap a piece to download.",
+    lede: "Free wallpapers, made for your lock screen and home screen. Tap a piece to download.",
   },
 ]
 

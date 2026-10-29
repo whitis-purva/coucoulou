@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { artwork, filtersFor, seriesBlocks, type Artwork, type CollectionId } from "@/data/art"
-import { assetUrl, downloadName, fileLabel, proportionNote } from "@/lib/assets"
+import { assetUrl, downloadName, fileLabel } from "@/lib/assets"
 import { ArtImage } from "@/components/ArtImage"
 import { cn } from "cn"
 
@@ -102,25 +102,19 @@ export function Work({ onOpen }: { onOpen: (piece: Artwork) => void }) {
         ) : null}
 
         <div className="space-y-16">
-          {blocks.map(({ entry, pieces }) => {
-            const proportion = proportionNote(pieces)
-            return (
-              <div key={entry.id}>
-                <h2 className="font-display max-w-xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-                  {entry.title}
-                </h2>
-                <p className="mt-3 max-w-xl text-base leading-relaxed text-ink/75">{entry.lede}</p>
-                {proportion ? (
-                  <p className="mt-2 max-w-xl text-sm text-ink/55">{proportion}</p>
-                ) : null}
-                <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-                  {pieces.map((piece) => (
-                    <PieceCard key={piece.slug} piece={piece} onOpen={onOpen} />
-                  ))}
-                </div>
+          {blocks.map(({ entry, pieces }) => (
+            <div key={entry.id}>
+              <h2 className="font-display max-w-xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+                {entry.title}
+              </h2>
+              <p className="mt-3 max-w-xl text-base leading-relaxed text-ink/75">{entry.lede}</p>
+              <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+                {pieces.map((piece) => (
+                  <PieceCard key={piece.slug} piece={piece} onOpen={onOpen} />
+                ))}
               </div>
-            )
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
