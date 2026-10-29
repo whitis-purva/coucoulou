@@ -11,8 +11,6 @@ export type CollectionId = Exclude<(typeof collectionFilters)[number]["id"], "al
 export type Artwork = {
   slug: string
   title: string
-  /** Character name. Shown under the title when it isn’t the same words. */
-  pokemon: string
   seriesId: string
   collection: CollectionId
   description: string
@@ -55,7 +53,6 @@ export const artwork: Artwork[] = [
   {
     slug: "mew",
     title: "Mew",
-    pokemon: "Mew",
     seriesId: "wallpapers-vol-1",
     collection: "wallpapers",
     description: "Mew drifting through a sky that goes from pink to blue.",
@@ -68,7 +65,6 @@ export const artwork: Artwork[] = [
   {
     slug: "espeon",
     title: "Espeon",
-    pokemon: "Espeon",
     seriesId: "wallpapers-vol-1",
     collection: "wallpapers",
     description: "Espeon on a bank of cloud, sun behind the ears.",
@@ -81,7 +77,6 @@ export const artwork: Artwork[] = [
   {
     slug: "kubfu",
     title: "Kubfu",
-    pokemon: "Kubfu",
     seriesId: "wallpapers-vol-1",
     collection: "wallpapers",
     description: "Kubfu with fists up, on a streak of evening color.",
@@ -93,8 +88,7 @@ export const artwork: Artwork[] = [
   },
   {
     slug: "reuniclus",
-    title: "Reuniclus",
-    pokemon: "Solosis, Duosion, and Reuniclus",
+    title: "Reuniclus & Solosis",
     seriesId: "wallpapers-vol-1",
     collection: "wallpapers",
     description: "Solosis, Duosion, and Reuniclus in a bright sky.",
@@ -106,8 +100,7 @@ export const artwork: Artwork[] = [
   },
   {
     slug: "gourgeist",
-    title: "Gourgeist",
-    pokemon: "Gourgeist and Pumpkaboo",
+    title: "Gourgeist & Pumpkaboo",
     seriesId: "wallpapers-vol-1",
     collection: "wallpapers",
     description: "Gourgeist on a Halloween path, with Pumpkaboo below.",

@@ -10,9 +10,6 @@ function PieceMeta({ piece }: { piece: Artwork }) {
       <h3 className="font-display text-lg leading-tight font-semibold tracking-[-0.02em]">
         {piece.title}
       </h3>
-      {piece.pokemon !== piece.title ? (
-        <p className="mt-1 text-sm leading-snug text-ink/70">{piece.pokemon}</p>
-      ) : null}
       <p className="mt-1 text-xs tabular-nums text-ink/55">{fileLabel(piece)}</p>
       {piece.collection === "wallpapers" ? (
         <a

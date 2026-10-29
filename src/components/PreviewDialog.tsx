@@ -40,9 +40,6 @@ export function PreviewDialog({
               <DialogTitle className="font-display mt-2 text-4xl font-semibold tracking-[-0.03em]">
                 {piece.title}
               </DialogTitle>
-              {piece.pokemon !== piece.title ? (
-                <p className="mt-2 text-base text-ink/70">{piece.pokemon}</p>
-              ) : null}
               <DialogDescription className="mt-3 text-base leading-relaxed text-ink/75">
                 {piece.description}
               </DialogDescription>
