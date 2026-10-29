@@ -31,7 +31,7 @@ export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
             className="print-tilt block w-full -rotate-2 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-berry"
             onClick={() => onOpen(piece)}
           >
-            <span className="block bg-white p-2 shadow-[0_28px_50px_-32px_rgba(28,25,21,0.85)] ring-1 ring-ink/10">
+            <span className="block bg-white p-2 shadow-[0_28px_50px_-32px_rgba(41,34,36,0.85)] ring-1 ring-ink/10">
               <ArtImage
                 artwork={piece}
                 alt={piece.alt}

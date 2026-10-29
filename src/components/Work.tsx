@@ -33,7 +33,7 @@ function PieceCard({
 }) {
   const frame =
     piece.collection === "wallpapers" ? (
-      <span className="block rounded-[1.65rem] bg-ink p-[7px] shadow-[0_18px_36px_-26px_rgba(28,25,21,0.85)]">
+      <span className="block rounded-[1.65rem] bg-ink p-[7px] shadow-[0_18px_36px_-26px_rgba(41,34,36,0.85)]">
         <span className="relative block overflow-hidden rounded-[1.2rem]">
           <span
             className="absolute top-1.5 left-1/2 z-10 h-3 w-11 -translate-x-1/2 rounded-full bg-ink"
