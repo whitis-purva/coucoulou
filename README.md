@@ -32,13 +32,4 @@ Wallpaper files are free for personal use. The footer says so, including a reque
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
 4. Push to `main`. The workflow in `.github/workflows/pages.yml` builds the site and publishes it.
 
-If the repository is named `yourname.github.io`, the site is served from the domain root. Any other repository name is served from a subpath (`https://yourname.github.io/repository-name/`), and the workflow sets that up.
-
-To preview a subpath locally:
-
-```bash
-VITE_BASE=/cou.cou.lou/ npm run build
-npx vite preview --host 127.0.0.1 --port 43123
-```
-
-A custom domain can be added later in the Pages settings.
+The published site uses relative file paths, so it works at `https://yourname.github.io/repository-name/` and at a custom domain. The custom domain for this site is `coucoulou.art`.
