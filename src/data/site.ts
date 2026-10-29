@@ -11,10 +11,9 @@ export type SocialLink = {
 export const site = {
   name: "cou.cou.lou",
   title: "cou.cou.lou — illustration",
-  description:
-    "Illustration by cou.cou.lou: Pokémon fan art, ponysona and fursona drawings, and pages for a Michi-method binder. Some fan art can be saved as a phone wallpaper.",
+  description: "Pokémon fan art and other drawings by cou.cou.lou.",
   tagline: "Illustration",
-  hero: "Pokémon fan art, characters drawn for people, and pages for a collecting binder. A few of the fan-art pieces can be saved for a phone.",
+  hero: "I draw Pokémon fan art. Sometimes the character already belongs to someone else.",
   aboutTitle: "The sketchbook",
   about: [
     "cou.cou.lou is an illustration practice. Most of the drawings are Pokémon fan art. Some are made for a person: a ponysona or a fursona. Others are sized for a Michi-method binder, where the page shape changes with the spread.",
