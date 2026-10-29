@@ -2,6 +2,7 @@ import { useState } from "react"
 import type { Artwork } from "@/data/art"
 import { site } from "@/data/site"
 import { Hero } from "@/components/Hero"
+import { InstagramIcon } from "@/components/InstagramIcon"
 import { PreviewDialog } from "@/components/PreviewDialog"
 import { Work } from "@/components/Work"
 import { Wordmark } from "@/components/Wordmark"
@@ -120,9 +121,10 @@ export default function App() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
+                    aria-label={link.label}
+                    className="inline-flex text-ink transition-colors hover:text-berry"
                   >
-                    {link.label}
+                    {link.href.includes("instagram.com") ? <InstagramIcon /> : link.label}
                   </a>
                 </li>
               ))}
