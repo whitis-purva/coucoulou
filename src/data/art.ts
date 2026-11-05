@@ -122,6 +122,18 @@ export const artwork: Artwork[] = [
     preview: "art/previews/gourgeist.webp",
     alt: "Illustration of Gourgeist holding a jack-o’-lantern bucket on a dark path, with Pumpkaboo in front and bare trees behind.",
   },
+  {
+    slug: "sprigatito",
+    title: "Sprigatito",
+    seriesId: "wallpapers-vol-1",
+    collection: "wallpapers",
+    description: "Sprigatito in a field of little flowers.",
+    width: 1179,
+    height: 2556,
+    file: "art/sprigatito.png",
+    preview: "art/previews/sprigatito.webp",
+    alt: "Illustration of Sprigatito walking through a meadow of pink flowers, green fur with a leaf-shaped marking, pink eyes, and a blue sky behind the hills.",
+  },
 ]
 
 export const featuredSlug = "mew"
