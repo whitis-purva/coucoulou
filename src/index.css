@@ -4,7 +4,7 @@
 @import "@fontsource-variable/fraunces/full.css";
 @import "@fontsource-variable/fraunces/full-italic.css";
 @import "@fontsource-variable/outfit";
-@import "@fontsource/yellowtail/latin-400.css";
+@import "@fontsource/pinyon-script/latin-400.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -12,7 +12,7 @@
   --font-heading: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
-  --font-wordmark: "Yellowtail", cursive;
+  --font-wordmark: "Pinyon Script", cursive;
   --color-paper: #f3f1f6;
   --color-ink: #292224;
   --color-berry: #fc5d7d;
@@ -159,6 +159,20 @@
 .font-display {
   font-optical-sizing: auto;
   font-variation-settings: "SOFT" 30, "WONK" 1;
+}
+
+.swash-amp {
+  font-family: "Fraunces Variable", ui-serif, Georgia, serif;
+  font-style: normal;
+  font-weight: 560;
+  font-optical-sizing: none;
+  font-synthesis: none;
+  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 144, "wght" 560;
+  display: inline-block;
+  font-size: 1.42em;
+  line-height: 0.7;
+  margin-inline: 0.05em;
+  transform: translateY(0.04em);
 }
 
 @media (prefers-reduced-motion: reduce) {

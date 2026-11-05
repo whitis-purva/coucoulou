@@ -3,6 +3,7 @@ import { artwork, filtersFor, seriesBlocks, type Artwork, type CollectionId } fr
 import { assetUrl, downloadName, fileLabel } from "@/lib/assets"
 import { site } from "@/data/site"
 import { ArtImage } from "@/components/ArtImage"
+import { SwashText } from "@/components/SwashText"
 import { cn } from "cn"
 
 function DownloadLink({
@@ -29,7 +30,7 @@ function PieceMeta({ piece }: { piece: Artwork }) {
   return (
     <div className="mt-3">
       <h3 className="font-display text-lg leading-tight font-semibold tracking-[-0.02em]">
-        {piece.title}
+        <SwashText text={piece.title} />
       </h3>
       <p className="mt-1 text-xs tabular-nums text-ink/55">{fileLabel(piece)}</p>
       {piece.collection === "wallpapers" ? (

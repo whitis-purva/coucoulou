@@ -56,7 +56,7 @@ export default function App() {
 
       <header className="sticky top-0 z-40 border-b border-ink/15 bg-paper/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-5 py-3.5 md:px-8">
-          <a href="#top" className="text-[1.7rem] leading-none">
+          <a href="#top" className="text-[clamp(1.45rem,6vw,1.85rem)] leading-none">
             <Wordmark />
           </a>
           <nav className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
@@ -95,7 +95,7 @@ export default function App() {
 
       <footer id="contact" className="border-t border-ink/15">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8">
-          <p className="text-5xl leading-none">
+          <p className="text-[clamp(2.6rem,8vw,3.5rem)] leading-none">
             <Wordmark />
           </p>
           <h2 className="font-display mt-8 text-2xl font-semibold tracking-[-0.03em]">Contact</h2>

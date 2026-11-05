@@ -2,6 +2,7 @@ import { featuredPiece } from "@/data/art"
 import { site } from "@/data/site"
 import { assetUrl, downloadName } from "@/lib/assets"
 import { ArtImage } from "@/components/ArtImage"
+import { SwashText } from "@/components/SwashText"
 import { Wordmark } from "@/components/Wordmark"
 import { Button } from "@/components/ui/button"
 
@@ -11,10 +12,12 @@ export function Hero() {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-6">
       <div className="@container min-w-0">
-        <h1 className="text-[clamp(2.7rem,18cqi,8rem)] leading-[1.2] whitespace-nowrap text-ink">
+        <h1 className="text-[clamp(2.35rem,16cqi,7.5rem)] leading-[1.15] whitespace-nowrap text-ink">
           <Wordmark />
         </h1>
-        <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/80">{site.hero}</p>
+        <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/80">
+          <SwashText text={site.hero} />
+        </p>
         <div className="mt-8">
           <Button asChild className="h-11 px-4 text-base">
             <a href="#work">
