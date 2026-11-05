@@ -1,11 +1,11 @@
-import type { Artwork } from "@/data/art"
 import { featuredPiece } from "@/data/art"
 import { site } from "@/data/site"
+import { assetUrl, downloadName } from "@/lib/assets"
 import { ArtImage } from "@/components/ArtImage"
 import { Wordmark } from "@/components/Wordmark"
 import { Button } from "@/components/ui/button"
 
-export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
+export function Hero() {
   const piece = featuredPiece()
 
   return (
@@ -26,10 +26,10 @@ export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
 
       {piece ? (
         <div className="mx-auto w-[196px] sm:w-[220px] lg:w-[240px]">
-          <button
-            type="button"
-            className="print-tilt block w-full -rotate-2 text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-berry"
-            onClick={() => onOpen(piece)}
+          <a
+            href={assetUrl(piece.file)}
+            download={downloadName(piece)}
+            className="print-tilt block w-full -rotate-2 touch-manipulation focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-berry"
           >
             <span className="block bg-white p-2 shadow-[0_28px_50px_-32px_rgba(41,34,36,0.85)] ring-1 ring-ink/10">
               <ArtImage
@@ -40,7 +40,8 @@ export function Hero({ onOpen }: { onOpen: (piece: Artwork) => void }) {
                 className="h-auto w-full"
               />
             </span>
-          </button>
+            <span className="sr-only">Download</span>
+          </a>
         </div>
       ) : null}
     </section>

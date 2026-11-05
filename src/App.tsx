@@ -1,9 +1,6 @@
-import { useState } from "react"
-import type { Artwork } from "@/data/art"
 import { site } from "@/data/site"
 import { Hero } from "@/components/Hero"
 import { InstagramIcon } from "@/components/InstagramIcon"
-import { PreviewDialog } from "@/components/PreviewDialog"
 import { Work } from "@/components/Work"
 import { Wordmark } from "@/components/Wordmark"
 
@@ -45,7 +42,6 @@ function InterestLine() {
 }
 
 export default function App() {
-  const [active, setActive] = useState<Artwork | null>(null)
   const email = site.email.trim()
   const hasContact = email.length > 0 || site.socials.length > 0
 
@@ -74,8 +70,8 @@ export default function App() {
       </header>
 
       <main id="top">
-        <Hero onOpen={setActive} />
-        <Work onOpen={setActive} />
+        <Hero />
+        <Work />
 
         <section id="about" className="border-t border-ink/10">
           <div className="mx-auto max-w-2xl px-5 py-16 md:px-8 md:py-20">
@@ -140,7 +136,6 @@ export default function App() {
         </div>
       </footer>
 
-      <PreviewDialog piece={active} onOpenChange={(open) => !open && setActive(null)} />
     </div>
   )
 }

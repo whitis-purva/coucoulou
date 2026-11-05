@@ -1,8 +1,29 @@
-import { useMemo, useState } from "react"
+import { useMemo, useState, type ReactNode } from "react"
 import { artwork, filtersFor, seriesBlocks, type Artwork, type CollectionId } from "@/data/art"
 import { assetUrl, downloadName, fileLabel } from "@/lib/assets"
+import { site } from "@/data/site"
 import { ArtImage } from "@/components/ArtImage"
 import { cn } from "cn"
+
+function DownloadLink({
+  piece,
+  className,
+  children,
+}: {
+  piece: Artwork
+  className?: string
+  children: ReactNode
+}) {
+  return (
+    <a
+      href={assetUrl(piece.file)}
+      download={downloadName(piece)}
+      className={cn("touch-manipulation", className)}
+    >
+      {children}
+    </a>
+  )
+}
 
 function PieceMeta({ piece }: { piece: Artwork }) {
   return (
@@ -12,25 +33,18 @@ function PieceMeta({ piece }: { piece: Artwork }) {
       </h3>
       <p className="mt-1 text-xs tabular-nums text-ink/55">{fileLabel(piece)}</p>
       {piece.collection === "wallpapers" ? (
-        <a
-          href={assetUrl(piece.file)}
-          download={downloadName(piece)}
+        <DownloadLink
+          piece={piece}
           className="mt-2 inline-flex h-7 items-center rounded-md border border-ink/20 px-2.5 text-xs text-ink/75 hover:border-ink hover:text-ink"
         >
           Download<span className="sr-only"> {piece.title}</span>
-        </a>
+        </DownloadLink>
       ) : null}
     </div>
   )
 }
 
-function PieceCard({
-  piece,
-  onOpen,
-}: {
-  piece: Artwork
-  onOpen: (piece: Artwork) => void
-}) {
+function PieceCard({ piece }: { piece: Artwork }) {
   const frame =
     piece.collection === "wallpapers" ? (
       <span className="block rounded-[1.65rem] bg-ink p-[7px] shadow-[0_18px_36px_-26px_rgba(41,34,36,0.85)]">
@@ -48,21 +62,25 @@ function PieceCard({
       </span>
     )
 
+  const picture =
+    piece.collection === "wallpapers" ? (
+      <DownloadLink piece={piece} className="block w-full">
+        {frame}
+        <span className="sr-only">Download</span>
+      </DownloadLink>
+    ) : (
+      frame
+    )
+
   return (
     <article>
-      <button
-        type="button"
-        className="block w-full text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-berry"
-        onClick={() => onOpen(piece)}
-      >
-        {frame}
-      </button>
+      {picture}
       <PieceMeta piece={piece} />
     </article>
   )
 }
 
-export function Work({ onOpen }: { onOpen: (piece: Artwork) => void }) {
+export function Work() {
   const filters = filtersFor(artwork)
   const [filter, setFilter] = useState<"all" | CollectionId>("all")
   const visible = useMemo(
@@ -105,10 +123,13 @@ export function Work({ onOpen }: { onOpen: (piece: Artwork) => void }) {
                 {entry.title}
               </h2>
               <p className="mt-3 max-w-xl text-base leading-relaxed text-ink/75">{entry.lede}</p>
+              {entry.collection === "wallpapers" ? (
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/55">{site.saveHint}</p>
+              ) : null}
               <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
                 {pieces.map((piece) => (
-                  <PieceCard key={piece.slug} piece={piece} onOpen={onOpen} />
-                ))}
+                    <PieceCard key={piece.slug} piece={piece} />
+                  ))}
               </div>
             </div>
           ))}
