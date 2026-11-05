@@ -75,6 +75,18 @@ export const artwork: Artwork[] = [
     alt: "Illustration of Espeon sitting on clouds, lilac fur and a red forehead gem, with pale sunbeams behind the ears.",
   },
   {
+    slug: "umbreon",
+    title: "Umbreon",
+    seriesId: "wallpapers-vol-1",
+    collection: "wallpapers",
+    description: "Umbreon under a full moon, rings glowing.",
+    width: 1179,
+    height: 2556,
+    file: "art/umbreon.png",
+    preview: "art/previews/umbreon.webp",
+    alt: "Illustration of Umbreon sitting beneath a full moon, black fur with glowing cyan rings, yellow eyes, and stars on a dark blue night.",
+  },
+  {
     slug: "kubfu",
     title: "Kubfu",
     seriesId: "wallpapers-vol-1",
