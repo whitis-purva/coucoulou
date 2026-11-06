@@ -4,7 +4,7 @@
 @import "@fontsource-variable/fraunces/full.css";
 @import "@fontsource-variable/fraunces/full-italic.css";
 @import "@fontsource-variable/outfit";
-@import "@fontsource/pinyon-script/latin-400.css";
+@import "@fontsource/birthstone-bounce/latin-400.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -12,7 +12,7 @@
   --font-heading: "Fraunces Variable", ui-serif, Georgia, serif;
   --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
-  --font-wordmark: "Pinyon Script", cursive;
+  --font-wordmark: "Birthstone Bounce", cursive;
   --color-paper: #f3f1f6;
   --color-ink: #292224;
   --color-berry: #fc5d7d;
