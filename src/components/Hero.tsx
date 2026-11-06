@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-6">
       <div className="@container min-w-0">
-        <h1 className="text-[clamp(2.7rem,17cqi,8rem)] leading-none whitespace-nowrap text-ink">
+        <h1 className="text-[clamp(2.35rem,11.5cqi,5.4rem)] leading-none whitespace-nowrap text-ink">
           <Wordmark />
         </h1>
         <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/80">
